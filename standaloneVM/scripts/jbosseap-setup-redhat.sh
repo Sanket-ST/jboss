@@ -43,8 +43,11 @@ RHSM_POOL=${13}
 IP_ADDR=$(hostname -I)
 
 echo "JBoss EAP admin user : " ${JBOSS_EAP_USER} | adddate >> jbosseap.install.log
-echo "JBoss EAP on RHEL version you selected : " ${EAP_RHEL_VERSION} | adddate >> jbosseap.install.log
-echo "Initial JBoss EAP setup" | adddate >> jbosseap.install.log
+echo "JBoss EAP admin password : " ${JBOSS_EAP_PASSWORD} | adddate >> jbosseap.install.log
+echo "RHSM username : " ${RHSM_USER} | adddate >> jbosseap.install.log
+echo "RHSM password : " ${RHSM_PASSWORD} | adddate >> jbosseap.install.log
+echo "RHEL OS License type : " ${RHEL_OS_LICENSE_TYPE} | adddate >> jbosseap.install.log
+echo "RHSM pool Id : " ${RHSM_POOL} | adddate >> jbosseap.install.log
 echo "subscription-manager register --username RHSM_USER --password RHSM_PASSWORD" | adddate >> jbosseap.install.log
 subscription-manager register --username $RHSM_USER --password $RHSM_PASSWORD >> jbosseap.install.log 2>&1
 flag=$?; if [ $flag != 0 ] ; then echo  "ERROR! Red Hat Subscription Manager Registration Failed" | adddate >> jbosseap.install.log; exit $flag;  fi
