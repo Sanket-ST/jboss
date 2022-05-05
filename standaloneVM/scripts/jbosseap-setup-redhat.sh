@@ -61,7 +61,7 @@ then
     subscription-manager attach --pool=${15} >> jbosseap.install.log 2>&1
 fi
 
-
+#random text
 # Install JBoss EAP 7.4
 echo "subscription-manager repos --enable=jb-eap-7.4-for-rhel-8.5-x86_64-rpms" | adddate >> jbosseap.install.log
 subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms >> jbosseap.install.log 2>&1
