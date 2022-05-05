@@ -33,22 +33,25 @@ done
 
 fileUrl="$artifactsLocation$pathToFile/$fileToDownload$token"
 
-JBOSS_EAP_USER=$8
-JBOSS_EAP_PASSWORD=${9}
-RHEL_OS_LICENSE_TYPE=${10}
-RHSM_USER=${11}
-RHSM_PASSWORD=${12}
-RHSM_POOL=${13}
+JBOSS_EAP_USER=$9
+JBOSS_EAP_PASSWORD=${10}
+RHEL_OS_LICENSE_TYPE=${11}
+RHSM_USER=${12}
+RHSM_PASSWORD=${13}
+RHSM_POOL=${14}
 IP_ADDR=$(hostname -I)
-STORAGE_ACCOUNT_NAME=${14}
-CONTAINER_NAME=${15}
-STORAGE_ACCESS_KEY=$(echo "${16}" | openssl enc -d -base64)
+STORAGE_ACCOUNT_NAME=${15}
+CONTAINER_NAME=${16}
+STORAGE_ACCESS_KEY=$(echo "${17}" | openssl enc -d -base64)
 
 echo "JBoss EAP admin user: " ${JBOSS_EAP_USER} | adddate >> jbosseap.install.log
-echo "JBoss EAP on RHEL version you selected : " ${EAP_RHEL_VERSION} | adddate >> jbosseap.install.log
+echo "JBoss EAP admin password: " ${JBOSS_EAP_PASSWORD} | adddate >> jbosseap.install.log
+echo "RHEL OS License type: " ${RHEL_OS_LICENSE_TYPE} | adddate >> jbosseap.install.log
+echo "RHSM username: " ${RHSM_USER} | adddate >> jbosseap.install.log
+echo "RHSM username: " ${RHSM_PASSWORD} | adddate >> jbosseap.install.log
+echo "RHSM username: " ${RHSM_POOL} | adddate >> jbosseap.install.log
 echo "Storage Account Name: " ${STORAGE_ACCOUNT_NAME} | adddate >> jbosseap.install.log
 echo "Storage Container Name: " ${CONTAINER_NAME} | adddate >> jbosseap.install.log
-echo "RHSM_USER: " ${RHSM_USER} | adddate >> jbosseap.install.log
 
 echo "Configure firewall for ports 8080, 9990, 45700, 7600..." | adddate >> jbosseap.install.log
 
@@ -76,7 +79,7 @@ if [ $RHEL_OS_LICENSE_TYPE == "BYOS" ]
 then
     echo "Attaching Pool ID for RHEL OS" | adddate >> jbosseap.install.log
     echo "subscription-manager attach --pool=RHEL_POOL" | adddate  >> jbosseap.install.log
-    subscription-manager attach --pool=${17} >> jbosseap.install.log 2>&1
+    subscription-manager attach --pool=${18} >> jbosseap.install.log 2>&1
 fi
 echo "Subscribing the system to get access to JBoss EAP repos" | adddate >> jbosseap.install.log
 
