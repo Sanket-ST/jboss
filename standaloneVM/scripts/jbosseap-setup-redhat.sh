@@ -34,12 +34,12 @@ done
 fileUrl="$artifactsLocation$pathToFile/$fileToDownload$token"
 
 export EAP_RPM_CONF_STANDALONE="/etc/opt/rh/eap7/wildfly/eap7-standalone.conf"
-JBOSS_EAP_USER=$7
-JBOSS_EAP_PASSWORD=${8}
-RHSM_USER=${9}
-RHSM_PASSWORD=${10}
-RHEL_OS_LICENSE_TYPE=${11}
-RHSM_POOL=${12}
+JBOSS_EAP_USER=$9
+JBOSS_EAP_PASSWORD=${10}
+RHSM_USER=${11}
+RHSM_PASSWORD=${12}
+RHEL_OS_LICENSE_TYPE=${13}
+RHSM_POOL=${14}
 IP_ADDR=$(hostname -I)
 
 echo "JBoss EAP admin user : " ${JBOSS_EAP_USER} | adddate >> jbosseap.install.log
@@ -58,7 +58,7 @@ if [ $RHEL_OS_LICENSE_TYPE == "BYOS" ]
 then
     echo "Attaching Pool ID for RHEL OS" | adddate >> jbosseap.install.log
     echo "subscription-manager attach --pool=RHEL_POOL" | adddate >> jbosseap.install.log
-    subscription-manager attach --pool=${13} >> jbosseap.install.log 2>&1
+    subscription-manager attach --pool=${15} >> jbosseap.install.log 2>&1
 fi
 
 
