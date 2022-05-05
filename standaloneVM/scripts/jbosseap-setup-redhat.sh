@@ -63,7 +63,7 @@ fi
 
 
 # Install JBoss EAP 7.4
-echo "subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms" | adddate >> jbosseap.install.log
+echo "subscription-manager repos --enable=jb-eap-7.4-for-rhel-8.5-x86_64-rpms" | adddate >> jbosseap.install.log
 subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms >> jbosseap.install.log 2>&1
 flag=$?; if [ $flag != 0 ] ; then echo  "ERROR! Enabling repos for JBoss EAP Failed" | adddate >> jbosseap.install.log; exit $flag;  fi
 
